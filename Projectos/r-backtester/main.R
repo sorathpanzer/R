@@ -6,7 +6,7 @@
           suppressPackageStartupMessages(library(IKTrading))
           suppressPackageStartupMessages(library(doParallel))
           suppressPackageStartupMessages(library(dplyr))
-          
+          t1 <- Sys.time()
           registerDoParallel(cores=detectCores())
           
           # ---------------------------------------------------- #
@@ -148,3 +148,6 @@
           kable(LS_Stats("short"))
 
           yearlyReturn(equity) * 200
+          
+          t2 <- Sys.time()
+          print(t2-t1)
